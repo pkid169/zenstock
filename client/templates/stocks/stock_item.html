@@ -1,5 +1,8 @@
 <template name="stockItem">
 	<div class="stock">
-		<h3><a href="#">{{symbol}}</a><span>{{price}}</span></h3>
+		<div class="stock-content">
+			<h3><a href="#">{{symbol}}</a> - <span>{{price}}</span></h3>
+		</div>
+		<button class="delete btn btn-primary">Delete</button>
 	</div>
 </template>

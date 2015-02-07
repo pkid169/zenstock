@@ -1,0 +1,18 @@
+#zen-icon {
+	float: right;
+	width: 250px;
+	clear: left;
+}
+
+.stock {
+	clear: left;
+}
+
+.stock-content {
+	float: left;
+}
+
+.delete {
+	float: right;
+	display: block;
+}
