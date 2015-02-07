@@ -5,14 +5,30 @@
 }
 
 .stock {
-	clear: left;
+	border-bottom: 1px solid #bdbdbd;
+}
+
+.stock-overview {
+	width: 100%;
+	padding: 10px 0;
+}
+
+.stock-details {
+	clear: both;
+}
+
+.stock h3 {
+	margin: auto 0;
 }
 
 .stock-content {
 	float: left;
 }
 
-.delete {
+.stock-control {
 	float: right;
-	display: block;
+}
+
+.btn {
+	margin-left: 5px;
 }

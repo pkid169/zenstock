@@ -1,8 +1,21 @@
 <template name="stockItem">
 	<div class="stock">
-		<div class="stock-content">
-			<h3><a href="#">{{symbol}}</a> - <span>{{price}}</span></h3>
+		<div class="stock-overview">
+			<div class="stock-content">
+				<h3><a href="#">{{symbol}}</a> ~ <span>{{currentPrice}}</span></h3>
+			</div>
+			<div class="stock-control">
+				<button class="refresh btn btn-primary">Refresh</button>
+				<button class="delete btn btn-primary">Delete</button>
+			</div>
+		</div>			
+		<div class="stock-details">
+			<ul>
+				<li>Buy Quantity: {{buyQuantity}}</li>
+				<li>Buy Price: {{buyPrice}}</li>
+				<li>Capital: {{capital}} </li>
+				<li>Position: {{position}}</li>
+			</ul>
 		</div>
-		<button class="delete btn btn-primary">Delete</button>
 	</div>
 </template>

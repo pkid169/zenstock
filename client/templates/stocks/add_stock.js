@@ -4,10 +4,23 @@ Template.addStock.events({
 
 		var stock = {
 			symbol: $(e.target).find('[name=symbol]').val(),
-			price: $(e.target).find('[name=price]').val()
+			buyPrice: $(e.target).find('[name=buyPrice]').val(),
+			buyQuantity: $(e.target).find('[name=buyQuantity]').val(),
+			currentPrice: 0,
+			sellPrice: 0,
+			sellQuantity: 0
 		};
 
-		stock._id = Stocks.insert(stock);
+		Meteor.call('addStock', stock, function(error, result) {
+			if (error) {
+				return alert(error.reason);
+			} else {
+				var stockId = result._id;
+				var stockSymbol = stock.symbol;
+				getStockCurrentPrice(stockId, stockSymbol);
+			}
+		});
+
 		Router.go('stocksList');
 	}
-})
+});
