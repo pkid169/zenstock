@@ -1,20 +1,45 @@
+html {
+	/*font-family: 'Roboto', sans-serif;*/
+}
+
 #zen-icon {
 	float: right;
 	width: 250px;
 	clear: left;
 }
 
+.stock-symbol {
+	/*font-family: 'Roboto', sans-serif;*/
+	color: #808080;
+	font-weight: 200;
+}
+
+.current-price {
+	font-weight: 900;
+}
+
 .stock {
 	border-bottom: 1px solid #bdbdbd;
+	padding: 10px 0;
 }
 
 .stock-overview {
 	width: 100%;
-	padding: 10px 0;
+	overflow: auto;
 }
 
-.stock-details {
-	clear: both;
+.stock-details ul {
+	margin: 0;
+	list-style-type: none;
+	padding: 0;
+}
+
+.stock-details-label {
+	color: #808080;
+}
+
+.stock-details-value {
+	font-weight: 450;
 }
 
 .stock h3 {

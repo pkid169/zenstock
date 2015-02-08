@@ -12,7 +12,11 @@ Template.addStock.events({
 			} else {
 				var stockId = result._id;
 				var stockSymbol = stock.symbol;
-				getStockCurrentPrice(stockId, stockSymbol);
+				Meteor.call('getStockCurrentPrice', stockId, stockSymbol, function(error, result) {
+					if (error) {
+						alert(error);
+					}
+				});
 			}
 		});
 

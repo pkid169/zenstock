@@ -2,19 +2,19 @@
 	<div class="stock">
 		<div class="stock-overview">
 			<div class="stock-content">
-				<h3><a href="#">{{symbol}}</a> ~ <span>{{currentPrice}}</span></h3>
+				<h3><span class="stock-symbol">{{symbol}}</span>&nbsp;<span class="current-price">{{currentPrice}}</span></h3>
 			</div>
 			<div class="stock-control">
-				<button class="refresh btn btn-primary">Refresh</button>
-				<button class="transact btn btn-primary">Transact</button>
-				<button class="delete btn btn-primary">Delete</button>
+				<button class="refresh btn btn-default">Refresh</button>
+				<button class="transact btn btn-default">Transact</button>
+				<button class="delete btn btn-default">Delete</button>
 			</div>
 		</div>			
 		<div class="stock-details">
 			{{#if hasPosition}}
 				<ul>
-					<li>Position: {{position}}</li>
-					<li>Theoretical Closed Position: {{theoreticalClosedPosition}}</li>
+					<li><span class="stock-details-value">{{position}}</span></li>
+					<li><span class="stock-details-label">Net Position</span>&nbsp;<span class="stock-details-value">{{theoreticalClosedPosition}}</span></li>
 				</ul>
 			{{/if}}
 		</div>
