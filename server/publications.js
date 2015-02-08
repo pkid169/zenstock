@@ -1,3 +1,4 @@
 Meteor.publish('stocks', function() {
-	return Stocks.find();
+	var currentUserId = this.userId;
+	return Stocks.find({userId: currentUserId});
 })
