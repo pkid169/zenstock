@@ -6,14 +6,17 @@
 			</div>
 			<div class="stock-control">
 				<button class="refresh btn btn-primary">Refresh</button>
+				<button class="transact btn btn-primary">Transact</button>
 				<button class="delete btn btn-primary">Delete</button>
 			</div>
 		</div>			
 		<div class="stock-details">
-			<ul>
-				<li>Buy: {{buyQuantity}} @ {{buyPrice}} ~ {{capital}}</li>
-				<li>Position: {{position}}</li>
-			</ul>
+			{{#if hasPosition}}
+				<ul>
+					<li>Position: {{position}}</li>
+					<li>Theoretical Closed Position: {{theoreticalClosedPosition}}</li>
+				</ul>
+			{{/if}}
 		</div>
 	</div>
 </template>

@@ -3,9 +3,7 @@ Template.addStock.events({
 		e.preventDefault();
 
 		var stock = {
-			symbol: $(e.target).find('[name=symbol]').val(),
-			buyPrice: $(e.target).find('[name=buyPrice]').val(),
-			buyQuantity: $(e.target).find('[name=buyQuantity]').val()
+			symbol: $(e.target).find('[name=symbol]').val()
 		};
 
 		Meteor.call('addStock', stock, function(error, result) {
