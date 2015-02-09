@@ -7,6 +7,8 @@ Meteor.methods({
 			currentPrice: 0,
 			positionQuantity: 0,
 			positionPrice: 0,
+			currentChange: 0,
+			currentChangePercentage: 0,
 			capital: 0,
 			created: new Date()
 		});
@@ -28,9 +30,13 @@ Meteor.methods({
 			var respContent = res.content.replace("// ", "");
 			var respStock = JSON.parse(respContent)[0];
 			var newPrice = respStock.l;
+			var newChange = respStock.c;
+			var newChangePercentage = respStock.cp;
 
 			var newStockProperties = {
-				currentPrice: newPrice
+				currentPrice: newPrice,
+				currentChange: newChange,
+				currentChangePercentage: newChangePercentage
 			};
 
 			if (respStock && respStock.l) {

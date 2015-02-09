@@ -60,5 +60,8 @@ Template.stockItem.helpers({
 		var netPercentage = (netValue / netCapital) * 100;
 		theoreticalClosedPosition += (netValue > 0 ? "+" : "") + netValue.toFixed(2) + " (" + (netPercentage > 0 ? "+" : "") + netPercentage.toFixed(2) + " %)";
 		return theoreticalClosedPosition;
+	},
+	colorIndicator: function() {
+		return this.currentChange >= 0 ? "positive" : "negative";
 	}
 });

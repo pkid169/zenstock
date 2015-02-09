@@ -2,7 +2,11 @@
 	<div class="stock">
 		<div class="stock-overview">
 			<div class="stock-content">
-				<h3><span class="stock-symbol">{{symbol}}</span>&nbsp;<span class="current-price">{{currentPrice}}</span></h3>
+				<h3>
+					<span class="stock-symbol">{{symbol}}</span>&nbsp;
+					<span class="current-price">{{currentPrice}}</span>&nbsp;
+					<span class="current-change {{colorIndicator}}">{{currentChange}} ({{currentChangePercentage}}%)</span>&nbsp;
+				</h3>
 			</div>
 			<div class="stock-control">
 				<button class="refresh btn btn-default">Refresh</button>

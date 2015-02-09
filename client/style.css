@@ -8,6 +8,14 @@ html {
 	clear: left;
 }
 
+.positive {
+	color: #A9F5A9;
+}
+
+.negative {
+	color: #F5A9A9;
+}
+
 .stock-symbol {
 	/*font-family: 'Roboto', sans-serif;*/
 	color: #808080;
@@ -16,6 +24,10 @@ html {
 
 .current-price {
 	font-weight: 900;
+}
+
+.current-change {
+	font-weight: 300;
 }
 
 .stock {
