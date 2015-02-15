@@ -8,18 +8,19 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{pathFor 'stocksList'}}">ZenStock</a>
+        <a class="navbar-brand" href="{{pathFor 'portfoliosList'}}">ZenStock</a>
       </div>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
           {{#if currentUser}}
-            <li><a href="{{pathFor 'addStock'}}">Add New Stock</a></li>
+            <li><a data-toggle="modal" id="add-portfolio-link" href="#add-portfolio-modal" data-target="#add-portfolio-modal"><span class="glyphicon glyphicon-plus"></span>&nbsp;Portfolio</a></li>
           {{/if}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {{> loginButtons}}
         </ul>
       </div>
+      {{> addPortfolio}}
     </div>
   </nav>
 </template>

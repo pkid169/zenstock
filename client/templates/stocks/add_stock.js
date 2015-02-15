@@ -3,7 +3,8 @@ Template.addStock.events({
 		e.preventDefault();
 
 		var stock = {
-			symbol: $(e.target).find('[name=symbol]').val()
+			symbol: $(e.target).find('[name=symbol]').val(),
+			portfolioId: Session.get('activePortfolioId')
 		};
 
 		Meteor.call('addStock', stock, function(error, result) {
@@ -20,6 +21,6 @@ Template.addStock.events({
 			}
 		});
 
-		Router.go('stocksList');
+		Router.go('portfoliosList');
 	}
 });

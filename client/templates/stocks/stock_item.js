@@ -41,24 +41,7 @@ Template.stockItem.helpers({
 		return position;
 	},
 	theoreticalClosedPosition: function() {
-		var theoreticalClosedPosition = "";
-		var netValue = 0;
-		var netCapital = 0;
-
-		var marketValue = Math.abs(this.positionQuantity * this.currentPrice);
-
-		// Long position
-		if (this.positionQuantity > 0) {
-			netValue = marketValue - (this.positionQuantity * this.positionPrice);
-			netCapital = this.capital;
-		}
-		// Short position
-		else {
-			netValue = (Math.abs(this.positionQuantity) * this.positionPrice) - marketValue;
-			netCapital = this.capital + marketValue;
-		}
-		var netPercentage = (netValue / netCapital) * 100;
-		theoreticalClosedPosition += (netValue > 0 ? "+" : "") + netValue.toFixed(2) + " (" + (netPercentage > 0 ? "+" : "") + netPercentage.toFixed(2) + " %)";
+		var theoreticalClosedPosition = (this.netValue > 0 ? "+" : "") + this.netValue.toFixed(2) + " (" + (this.netPercentage > 0 ? "+" : "") + this.netPercentage.toFixed(2) + " %)";
 		return theoreticalClosedPosition;
 	},
 	colorIndicator: function() {

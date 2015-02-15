@@ -1,0 +1,22 @@
+<template name="portfoliosList">
+	<ul class="nav nav-tabs">
+		{{#each portfolios}}
+			<li role="presentation">
+				<a href="#{{_id}}" class="portfolio-tab" data-toggle="tab">
+					{{name}}
+					{{#if isTabSelected _id}}
+						<div class="portfolio-controls">
+							<span class="glyphicon glyphicon-pencil edit-portfolio"></span>
+							<span class="glyphicon glyphicon-remove remove-portfolio"></span>
+						</div>
+					{{/if}}
+				</a>
+			</li>
+		{{/each}}
+	</ul>
+	<div class="tab-content portfolio-content-stage">
+		{{#each portfolios}}
+			{{> portfolioItem}}
+		{{/each}}
+	</div>
+</template>

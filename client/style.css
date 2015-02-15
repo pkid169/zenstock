@@ -16,6 +16,49 @@ html {
 	color: #F5A9A9;
 }
 
+.portfolio-content-stage {
+	padding: 10px 0;
+}
+
+.edit-tab {
+	float: left;
+}
+
+.portfolio-controls {
+	display: inline;
+	padding-left: 7px;
+	color: #ddd;
+}
+
+.portfolio-controls span {
+	padding-left: 2px;
+}
+
+.portfolio-controls span:hover{
+	color: #333;
+}
+
+.portfolio-overview {
+	background: #F8F8F8;
+	margin-top: 10px;
+	border-top: 1px solid #bdbdbd;
+	border-bottom: 1px solid #bdbdbd;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.portfolio-net-position {
+	font-size: 5em;
+}
+
+.portfolio-overview h3 {
+	margin: 0;
+	padding-top: 10px;
+	font-weight: 400;
+	color: #A8A8A8;
+}
+
 .stock-symbol {
 	/*font-family: 'Roboto', sans-serif;*/
 	color: #808080;

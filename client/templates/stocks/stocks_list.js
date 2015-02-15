@@ -1,5 +1,5 @@
 Template.stocksList.helpers({
 	stocks: function() {
-		return Stocks.find();
+		return Stocks.find({portfolioId: Session.get('activePortfolioId')});
 	}
 });

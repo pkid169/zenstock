@@ -1,0 +1,10 @@
+<template name="portfolioItem">
+	<div class="tab-pane" id="{{_id}}">
+		{{> addStock}}
+		<div class="portfolio-overview">
+			<div class="portfolio-net-position {{colorIndicator}}">{{portfolioNetPosition}}</div>
+			<h3>Net Position</h3>
+		</div>
+	    {{> stocksList}}
+	</div>
+</template>

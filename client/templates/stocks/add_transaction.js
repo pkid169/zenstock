@@ -12,13 +12,10 @@ Template.addTransaction.events({
 			stockId: stock._id
 		};
 
-		console.log(transaction);
-
 		Meteor.call('addTransaction', transaction, function(error, result) {
 			if (error) {
 				alert(error);
 			} else {
-
 				// Update stock position
 				var signedTransactionQuantity = (transaction.direction === "buy" ? 1 : -1) * transaction.quantity;
 				var updatedQuantity =  signedTransactionQuantity + stock.positionQuantity;
@@ -40,7 +37,6 @@ Template.addTransaction.events({
 						Router.go('/');
 					}
 				});
-
 			}
 		})
 	}

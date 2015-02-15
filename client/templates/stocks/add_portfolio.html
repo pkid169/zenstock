@@ -1,0 +1,28 @@
+<template name="addPortfolio">
+	<div class="modal fade in" id="add-portfolio-modal" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4>Add a new Portfolio</h4>
+				</div>
+				<div class="modal-body">
+					<form class="main form">
+						<div class="form-group">
+							<label class="control-label" for="name">Portfolio Name</label>
+							<div class="controls">
+						     	<input name="name" id="name" type="text" value="" placeholder="Portfolio Name" class="form-control"/>
+						    </div>
+				      	</div>
+				      	<div class="form-group">
+							<label class="control-label" for="icon">Representative Icon</label>
+							<div class="controls">
+						     	<input name="icon" id="icon" type="text" value="" placeholder="Representative Icon" class="form-control"/>
+						    </div>
+				      	</div>
+					    <input type="submit" value="Submit" class="btn btn-primary"/>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

@@ -1,11 +1,12 @@
 <template name="addStock">
-	<form class="main form">
-		<div class="form-group">
-			<label class="control-label" for="symbol">Symbol</label>
-			<div class="controls">
-		     	<input name="symbol" id="symbol" type="text" value="" placeholder="Stock Symbol" class="form-control"/>
-		    </div>
+	<form class="main" role="form">
+		<div class="input-group">
+			<input name="symbol" id="symbol" type="text" value="" placeholder="Stock Symbol..." class="form-control"/>
+			<span class="input-group-btn">
+				<button type="submit" class="btn btn-success">
+					<span class="glyphicon glyphicon-plus"></span> Stock
+				</button>
+			</span>
       	</div>
-	    <input type="submit" value="Submit" class="btn btn-primary"/>
 	</form>
 </template>
