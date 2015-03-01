@@ -6,6 +6,9 @@ Meteor.methods({
 			userId: user._id,
 			netValue: 0,
 			netPercentage: 0,
+			dailyValue: 0,
+			dailyPercentage: 0,
+			dailyChangePercentage: 0,
 			created: new Date()
 		});
 
@@ -24,26 +27,40 @@ Meteor.methods({
 	},
 	refreshPortfolio: function(portfolioId) {
 		var stocks = Stocks.find({portfolioId: portfolioId}).fetch();
-		console.log(stocks);
-
-		console.log('stocks length: ' + stocks.length);
 
 		var netValue = 0;
 		var netPercentage = 0;
+		var dailyValue = 0;
+		var dailyPercentage = 0;
+		var dailyChangePercentage = 0;
 
-		for (var i in stocks) {
-			var stock = stocks[i];
-			netValue += stock.netValue;
-			netPercentage += stock.netPercentage;
+		if (stocks && stocks.length > 0) {
+			var positionedStockCount = 0;
+
+			for (var i in stocks) {
+				var stock = stocks[i];
+				netValue += stock.netValue;
+				netPercentage += stock.netPercentage;
+				dailyValue += stock.dailyValue;
+
+				// Only take into account of daily change percentage if has position in the stock
+				if (stock.positionQuantity != 0) {
+					dailyPercentage += stock.dailyPercentage;
+					dailyChangePercentage += parseFloat(stock.currentChangePercentage);
+					positionedStockCount++;
+				}
+			}
+			netPercentage /= stocks.length;
+			dailyPercentage /= stocks.length;
+			dailyChangePercentage /= positionedStockCount;
 		}
-
-		netPercentage /= stocks.length;
-
-		console.log('netValue: ' + netValue + ' - netPercentage: ' + netPercentage);
 
 		var portfolio = {
 			netValue: netValue,
-			netPercentage: netPercentage
+			netPercentage: netPercentage,
+			dailyValue: dailyValue,
+			dailyPercentage: dailyPercentage,
+			dailyChangePercentage: dailyChangePercentage
 		}
 
 		Portfolios.update(portfolioId, {$set: portfolio});

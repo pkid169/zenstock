@@ -1,9 +1,35 @@
 <template name="portfolioItem">
 	<div class="tab-pane" id="{{_id}}">
 		{{> addStock}}
-		<div class="portfolio-overview">
-			<div class="portfolio-net-position {{colorIndicator}}">{{portfolioNetPosition}}</div>
-			<h3>Net Position</h3>
+		<div class="carousel slide portfolio-overview" id="portfolio-overview-{{_id}}" data-ride="carousel">
+
+			<!-- <ol class="carousel-indicators">
+				<li data-target="#portfolio-overview-{{_id}}" data-slide-to="0" class="active"></li>
+			    <li data-target="#portfolio-overview-{{_id}}" data-slide-to="1"></li>
+			    <li data-target="#portfolio-overview-{{_id}}" data-slide-to="2"></li>
+		  	</ol> -->
+
+		  	<div class="carousel-inner" role="listbox">
+		  		<div class="item active">
+    				<div class="portfolio-net-position {{colorIndicator dailyValue}}">{{portfolioDailyPosition}}</div>
+    				<h3>DAILY POSITION</h3>
+    			</div>
+
+    			<div class="item">
+    				<div class="portfolio-net-position {{colorIndicator netValue}}">{{portfolioNetPosition}}</div>
+    				<h3>NEW POSITION</h3>
+    			</div>
+    		</div>
+
+    		<!-- Controls -->
+			<a class="left carousel-control" href="#portfolio-overview-{{_id}}" role="button" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#portfolio-overview-{{_id}}" role="button" data-slide="next">
+			    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			</a>
 		</div>
 	    {{> stocksList}}
 	</div>

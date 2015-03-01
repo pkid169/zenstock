@@ -40,7 +40,11 @@ Template.stockItem.helpers({
 		position += " @ " + this.positionPrice;
 		return position;
 	},
-	theoreticalClosedPosition: function() {
+	dailyPosition: function() {
+		var dailyPosition = ((this.dailyValue > 0) ? "+" : "") + this.dailyValue.toFixed(2) + " (" + this.dailyPercentage.toFixed(2) + "%)";
+		return dailyPosition;
+	},
+	netPosition: function() {
 		var theoreticalClosedPosition = (this.netValue > 0 ? "+" : "") + this.netValue.toFixed(2) + " (" + (this.netPercentage > 0 ? "+" : "") + this.netPercentage.toFixed(2) + " %)";
 		return theoreticalClosedPosition;
 	},

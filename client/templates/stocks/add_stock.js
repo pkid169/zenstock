@@ -7,19 +7,18 @@ Template.addStock.events({
 			portfolioId: Session.get('activePortfolioId')
 		};
 
-		Meteor.call('addStock', stock, function(error, result) {
-			if (error) {
-				return alert(error.reason);
-			} else {
-				var stockId = result._id;
-				var stockSymbol = stock.symbol;
-				Meteor.call('getStockCurrentPrice', stockId, stockSymbol, function(error, result) {
-					if (error) {
-						alert(error);
-					}
-				});
-			}
-		});
+		if (stock.symbol) {
+			Meteor.call('addStock', stock, function(error, result) {
+				if (error) {
+					return alert(error.reason);
+				} else {
+					// reset add stock field
+					$(e.target).find('[name=symbol]').val('');
+				}
+			});
+		} else {
+			alert('Stock Symbol cannot be empty');
+		}
 
 		Router.go('portfoliosList');
 	}

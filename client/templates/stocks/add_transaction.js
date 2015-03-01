@@ -15,28 +15,8 @@ Template.addTransaction.events({
 		Meteor.call('addTransaction', transaction, function(error, result) {
 			if (error) {
 				alert(error);
-			} else {
-				// Update stock position
-				var signedTransactionQuantity = (transaction.direction === "buy" ? 1 : -1) * transaction.quantity;
-				var updatedQuantity =  signedTransactionQuantity + stock.positionQuantity;
-				var updatedPrice = ((stock.positionQuantity * stock.positionPrice) + (signedTransactionQuantity * transaction.price)) / updatedQuantity;
-
-				var updatedPosition = {
-					positionQuantity: updatedQuantity,
-					positionPrice: updatedPrice
-				}
-
-				if (transaction.direction === "buy") {
-					updatedPosition.capital = stock.capital + (transaction.quantity * transaction.price);
-				}
-
-				Meteor.call('updateStock', stock._id, updatedPosition, function(error, result) {
-					if (error) {
-						alert(error);
-					} else {
-						Router.go('/');
-					}
-				});
+			}  else {
+				Router.go('/');
 			}
 		})
 	}
